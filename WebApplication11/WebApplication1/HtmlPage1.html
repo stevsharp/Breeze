@@ -1,0 +1,60 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Northwind</title>
+    <meta charset="utf-8"/>
+
+    
+    <script src="Scripts/angular.js"></script>
+    <script src="Scripts/q.js"></script>
+    <script src="Scripts/jquery-3.1.1.js"></script>
+    <script src="Scripts/breeze.min.js"></script>
+    <script src="Scripts/breeze.bridge.angular.js"></script>
+
+    <script src="JavaScript.js"></script>
+    <link href="StyleSheet1.css" rel="stylesheet" />
+</head>
+<body>
+
+<div ng-app="regionApp">
+    
+    <div ng-controller="regionCtl">
+        <h1>Regions</h1>
+        {{test}}
+        {{property.length}}
+        <hr>
+
+        <table>
+            <tr ng-repeat="p in regions">
+                <td class="delete"><input type="button" value="Delete" ng-click="delete(p)" /></td>
+                <td class="card">
+
+                    <table class="details">
+                        <tr>
+                            <td>{{p.RegionID}}</td>
+
+                            <td>
+                                <input ng-model="p.RegionID"/>
+                            </td>
+
+                            <td>{{p.RegionDescription}}</td>
+
+                            <td>
+                                <input ng-model="p.RegionDescription" />
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
+
+        <hr/>
+        <input type="button" ng-click="refresh()" value="Refresh"/>
+        <input type="button" ng-click="add()" value="Add"/>
+        <input type="button" ng-click="save()" value="Save" />
+
+    </div>
+</div>
+
+</body>
+</html>
